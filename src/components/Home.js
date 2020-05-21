@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from "./Header";
+import TopMenu from "./TopMenu";
 
 const Home = () => {
     return (
         <>
-            <h1>Home</h1>
+            <TopMenu />
+            <Header />
         </>
     );
 };

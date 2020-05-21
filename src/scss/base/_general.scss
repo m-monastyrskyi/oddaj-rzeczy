@@ -1,3 +1,17 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
 body {
   font-family: $font-alt;
+}
+
+.container {
+  width: 90%;
+  max-width: 1616px;
+  margin: 0 auto;
 }

@@ -10,6 +10,7 @@ const TopMenu = () => {
                     <Link className="user-menu__item" to='#'>Zaloguj</Link>
                     <Link className="user-menu__item accent" to='#'>Załóż konto</Link>
                 </div>
+
                 <nav className="navigation">
                     <ul className="navigation__list">
                         <li className="navigation__item"><Link className="navigation__link active"

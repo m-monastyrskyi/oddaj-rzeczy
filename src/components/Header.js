@@ -1,5 +1,4 @@
 import React from 'react';
-import TopMenu from "./TopMenu";
 import {Link} from "react-router-dom";
 
 const Header = () => {

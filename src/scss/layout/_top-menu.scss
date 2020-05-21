@@ -1,10 +1,10 @@
-
-
 .top-menu {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 37px;
+  padding-top: 37px;
+  position: relative;
+  z-index: 1;
 }
 
 .user-menu {
@@ -26,7 +26,6 @@
 }
 
 .navigation {
-
 
   &__list {
     display: flex;

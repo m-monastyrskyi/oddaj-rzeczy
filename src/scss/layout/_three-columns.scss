@@ -1,0 +1,57 @@
+.three-columns {
+  background: url("../../assets/3-Columns-Background.png") repeat;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    padding: 0 10px;
+  }
+
+  &__count {
+    font-size: 90px;
+    line-height: 122px;
+    font-weight: 300;
+    color: $color-3-columns-numbers;
+    margin-top: 43px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+    color: $color-text-primary;
+    text-align: center;
+  }
+
+  &__text {
+    text-align: center;
+    font-family: $font-alt;
+    font-size: 16px;
+    line-height: 2em;
+    color: $color-text-primary;
+    letter-spacing: -.32px;
+    font-weight: 300;
+    margin: 28px 0;
+    padding-bottom: 37px;
+  }
+}
+
+.columns__wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+@media (max-width: $breakpoint-tablet) {
+  .columns__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .three-columns__column {
+    width: 75%;
+  }
+  .three-columns__text {
+    padding-bottom: 0;
+  }
+}

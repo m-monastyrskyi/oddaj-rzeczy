@@ -1,3 +1,8 @@
+.menu-wrapper {
+  position: absolute;
+  width: 100%;
+}
+
 .top-menu {
   display: flex;
   flex-direction: column;
@@ -72,6 +77,7 @@
     padding: 10px;
   }
 }
+
 @media (max-width: 600px) {
   .navigation {
     display: none;

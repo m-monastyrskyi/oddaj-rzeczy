@@ -1,11 +1,13 @@
 @import "base/reset";
-@import "base/mixins";
-
 @import "base/fonts";
 @import "base/colors";
+
+@import "base/mixins";
+@import "components/components";
 
 @import "base/general";
 
 @import "layout/top-menu";
 @import "layout/header";
 @import "layout/three-columns";
+@import "layout/simple-steps";

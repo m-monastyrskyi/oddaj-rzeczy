@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import TopMenu from "./TopMenu";
 import ThreeColumns from "./ThreeColumns";
+import SimpleSteps from "./SimpleSteps";
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <TopMenu />
             <Header />
             <ThreeColumns />
+            <SimpleSteps />
         </>
     );
 };

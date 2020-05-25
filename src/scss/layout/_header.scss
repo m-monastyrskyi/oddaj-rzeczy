@@ -32,16 +32,6 @@
     letter-spacing: -.76px;
     position: relative;
     margin-bottom: 125px;
-
-    &:after {
-      content: url("../../assets/Decoration.svg");
-      display: block;
-      position: absolute;
-      bottom: -70px;
-      left: 50%;
-      transform: translateX(-50%);
-
-    }
   }
 
 
@@ -51,7 +41,7 @@
   }
 
   &__btn {
-    @include btn;
+    //@include btn;
     padding: 10px 20px;
     width: 50%;
     display: flex;
@@ -99,7 +89,6 @@
       bottom: 0;
       right: 0;
       position: absolute;
-      z-index: -1;
     }
   }
 }

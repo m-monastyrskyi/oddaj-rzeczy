@@ -10,3 +10,16 @@
   text-decoration: none;
   color: $color-text-primary;
 }
+
+.decoration {
+
+  &:after {
+    content: url("../../assets/Decoration.svg");
+    display: block;
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+}

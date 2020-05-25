@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import icon1 from '../assets/Icon-1.svg';
-import icon2 from '../assets/Icon-2.svg';
-import icon3 from '../assets/Icon-3.svg';
-import icon4 from '../assets/Icon-4.svg';
+import icon1 from '../../assets/Icon-1.svg';
+import icon2 from '../../assets/Icon-2.svg';
+import icon3 from '../../assets/Icon-3.svg';
+import icon4 from '../../assets/Icon-4.svg';
 
 const SimpleSteps = () => {
     return (

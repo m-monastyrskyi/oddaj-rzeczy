@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import LinkScroll from "./LinkScroll";
 
 const TopMenu = () => {
     return (
@@ -13,15 +14,11 @@ const TopMenu = () => {
 
                     <nav className="navigation">
                         <ul className="navigation__list">
-                            <li className="navigation__item"><Link className="navigation__link active"
-                                                                   to='#'>Start</Link></li>
-                            <li className="navigation__item"><Link className="navigation__link" to='#'>O co
-                                chodzi?</Link></li>
-                            <li className="navigation__item"><Link className="navigation__link" to='#'>O nas</Link></li>
-                            <li className="navigation__item"><Link className="navigation__link" to='#'>Fundacja i
-                                organizacje</Link></li>
-                            <li className="navigation__item"><Link className="navigation__link" to='#'>Kontakt</Link>
-                            </li>
+                            <LinkScroll to='header' text={"Start"}/>
+                            <LinkScroll to='three-columns' text={"O co chodzi?"}/>
+                            <LinkScroll to='simple-steps' text={"O nas"}/>
+                            <LinkScroll to='#' text={"Fundacja i organizacje"}/>
+                            <LinkScroll to='footer' text={"Kontakt"}/>
                         </ul>
                     </nav>
                 </div>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import {validate} from "../api";
+import {validate} from "../API/api";
 
 const FooterForm = () => {
     const [name, setName] = useState('');
@@ -39,7 +39,7 @@ const FooterForm = () => {
     }
 
     return (
-        <footer className="footer">
+        <footer className="footer" >
             <div className="container">
                 <div className="contact__wrapper">
                     <div className="section-contact">
@@ -60,7 +60,9 @@ const FooterForm = () => {
                                     placeholder="Krzysztof"
                                     value={name}
                                     onChange={e => setName(e.target.value)}
-                                    onFocus={() => setErrors({})}
+                                    onFocus={() => {
+                                        setErrors({});
+                                    }}
                                 />
                                 {
                                     errors.name && <h3 className="error__text">{errors.name}</h3>

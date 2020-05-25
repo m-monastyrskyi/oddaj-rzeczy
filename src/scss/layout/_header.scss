@@ -5,7 +5,6 @@
   align-items: center;
   background-color: #FFFFFF;
 
-
   &__image {
     width: 50%;
     height: 100%;
@@ -32,12 +31,14 @@
     letter-spacing: -.76px;
     position: relative;
     margin-bottom: 125px;
+    z-index: 1;
   }
 
 
   &__cta {
     display: flex;
     justify-content: space-around;
+    z-index: 1;
   }
 
   &__btn {

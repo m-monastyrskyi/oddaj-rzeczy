@@ -4,11 +4,23 @@
   font-weight: 100;
   line-height: 45px;
   text-transform: uppercase;
-  display: inline-block;
+ // display: inline-block;
   border: .75px solid $color-text-primary;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
   color: $color-text-primary;
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+
+  &:hover {
+    color: white;
+    background-color: $color-text-primary;
+  }
+
+  &:active {
+    position: relative;
+    top: 2px;
+  }
 }
 
 .decoration {

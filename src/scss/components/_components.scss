@@ -4,9 +4,58 @@
   font-weight: 100;
   line-height: 45px;
   text-transform: uppercase;
-  display: inline-block;
+ // display: inline-block;
   border: .75px solid $color-text-primary;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
   color: $color-text-primary;
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+
+  &:hover {
+    color: white;
+    background-color: $color-text-primary;
+  }
+
+  &:active {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.decoration {
+  &:after {
+    content: url("../../assets/Decoration.svg");
+    display: block;
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+}
+
+.loading {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+.loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid $color-text-primary;
+  border-color: $color-text-primary transparent $color-text-primary transparent;
+  animation: loading 1.2s linear infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

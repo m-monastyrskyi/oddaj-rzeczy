@@ -7,10 +7,10 @@ const Header = () => {
             <div className="header__image"/>
 
             <div className="header__content">
-                <h2 className="header__title">Zacznij pomagać!<br/>Oddaj niechciane rzeczy w zaufane ręce</h2>
+                <h2 className="header__title decoration">Zacznij pomagać!<br/>Oddaj niechciane rzeczy w zaufane ręce</h2>
                 <div className="header__cta">
-                    <Link className="header__btn" to="/logowanie/">Oddaj<br/>rzeczy</Link>
-                    <Link className="header__btn" to="/logowanie/">Zorganizuj<br/>zbiórkę</Link>
+                    <Link className="header__btn btn" to="/logowanie/">Oddaj<br/>rzeczy</Link>
+                    <Link className="header__btn btn" to="/logowanie/">Zorganizuj<br/>zbiórkę</Link>
                 </div>
             </div>
         </header>

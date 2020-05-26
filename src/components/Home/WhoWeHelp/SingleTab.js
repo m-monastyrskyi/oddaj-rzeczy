@@ -14,7 +14,7 @@ const SingleTab = ({data}) => {
             for (let i = 1; i <= totalPages; i++) {
                 result.push(<li
                         key={i}
-                        className={i === currentPage ? "current" : null}
+                        className={i === currentPage ? "pagination__item current" : "pagination__item"}
                         onClick={() => setCurrentPage(i)}>
                         {i}
                     </li>
@@ -31,31 +31,35 @@ const SingleTab = ({data}) => {
         setCurrentItems(data.list.slice(startIndex, endIndex));
 
     }, [currentPage, data.list]);
-    useEffect(()=>{
+    useEffect(() => {
         setCurrentPage(1);
-    },[data.list])
+    }, [data.list])
 
     return (
-        <div>
+        <div className="single-tab">
             {
-                <h2>{data.title}</h2>
+                <h2 className="single-tab__title">{data.title}</h2>
             }
-            <ul>
+            <ul className="single-tab__list">
                 {
                     currentItems.map((item, index) => (
-                        <li style={{margin: "20px 0"}} key={index}>
+                        <li className="organization" key={index}>
                             {
                                 <>
-                                    <h2>{item.name}</h2>
-                                    <h3>{item.description}</h3>
-                                    <p>{item.stuff}</p>
+                                    <div className="organization__meta">
+                                        <h2 className="organization__name">{item.name}</h2>
+                                        <h3 className="organization__description">{item.description}</h3>
+                                    </div>
+                                    <div className="organization__stuff">
+                                        <p>{item.stuff}</p>
+                                    </div>
                                 </>
                             }
                         </li>
                     ))
                 }
                 {
-                    pagination() && <ul>
+                    pagination() && <ul className="pagination">
                         {
                             pagination().map(el => el)
                         }

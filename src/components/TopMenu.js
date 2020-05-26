@@ -17,7 +17,7 @@ const TopMenu = () => {
                             <LinkScroll to='header' text={"Start"}/>
                             <LinkScroll to='three-columns' text={"O co chodzi?"}/>
                             <LinkScroll to='simple-steps' text={"O nas"}/>
-                            <LinkScroll to='#' text={"Fundacja i organizacje"}/>
+                            <LinkScroll to='foundations' text={"Fundacja i organizacje"}/>
                             <LinkScroll to='footer' text={"Kontakt"}/>
                         </ul>
                     </nav>

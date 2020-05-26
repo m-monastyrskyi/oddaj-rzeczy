@@ -24,6 +24,7 @@ const validate = (name, email, message) => {
     return errors;
 }
 
+
 export {
     validate
 }

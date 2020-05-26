@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 const SingleTab = ({data}) => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [currentItems, setCurrentItems] = useState(data.list);
+    const [currentItems, setCurrentItems] = useState([]);
 
     const itemsPerPage = 3;
     const totalPages = Math.ceil(data.list.length / itemsPerPage);
@@ -28,10 +28,12 @@ const SingleTab = ({data}) => {
     useEffect(() => {
         const startIndex = currentPage * itemsPerPage - itemsPerPage;
         const endIndex = startIndex + 3;
-        console.log(startIndex, endIndex);
         setCurrentItems(data.list.slice(startIndex, endIndex));
 
-    }, [currentPage])
+    }, [currentPage, data.list]);
+    useEffect(()=>{
+        setCurrentPage(1);
+    },[data.list])
 
     return (
         <div>

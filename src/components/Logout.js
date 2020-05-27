@@ -1,9 +1,17 @@
 import React from 'react';
+import TopMenu from "./TopMenu";
+import {Link} from "react-router-dom";
 
 const Logout = () => {
     return (
         <>
-            <h1>Logout</h1>
+            <TopMenu/>
+            <section className="logout-page">
+                <div className="logout-page__title">
+                    <h1 className="decoration">Wylogowanie nastąpiło pomyślnie!</h1>
+                </div>
+                <Link className="auth-form__btn" to="/">Strona główna</Link>
+            </section>
         </>
     );
 };

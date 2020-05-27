@@ -1,9 +1,13 @@
 import React from 'react';
-import WhoWeHelp from "./Home/WhoWeHelp";
+import TopMenu from "./TopMenu";
+import AuthForm from "./AuthForm";
 
 const Login = () => {
     return (
-           <WhoWeHelp />
+           <>
+               <TopMenu />
+               <AuthForm register={false}/>
+           </>
     );
 };
 

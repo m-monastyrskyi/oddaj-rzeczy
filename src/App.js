@@ -13,10 +13,10 @@ function App() {
         <Router>
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route path="/oddaj-rzeczy/" component={OddajRzeczy}/>
-                <Route path="/logowanie/" component={Login}/>
-                <Route path="/rejestracja/" component={Register}/>
-                <Route path="/wylogowano/" component={Logout}/>
+                <Route exact path="/oddaj-rzeczy/" component={OddajRzeczy}/>
+                <Route exact path="/logowanie/" component={Login}/>
+                <Route exact path="/rejestracja/" component={Register}/>
+                <Route exact path="/wylogowano/" component={Logout}/>
                 <Route path="*" component={NotFound}/>
             </Switch>
         </Router>

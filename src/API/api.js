@@ -24,7 +24,34 @@ const validate = (name, email, message) => {
     return errors;
 }
 
+const validateAuth = (email, password, repeatPassword) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const errors = {};
+
+    if (!email) {
+        errors.email = 'Wymagane';
+    } else if (!re.test(String(email).toLowerCase())) {
+        errors.email = 'Podany email jest nieprawidłowy';
+    }
+
+    if (!password) {
+        errors.password = 'Wymagane';
+    } else if (password.length < 6) {
+        errors.password = 'Hasło musi mieć conajmniej 6 znaków!';
+    }
+
+    if ((typeof repeatPassword === "string") && (password !== repeatPassword)) {
+        errors.repeatPassword = 'Hasła się różnią!';
+    }
+
+    if (!errors.email && !errors.password && !errors.repeatPassword) {
+        errors.ok = true;
+    }
+    return errors;
+}
+
 
 export {
-    validate
+    validate,
+    validateAuth
 }

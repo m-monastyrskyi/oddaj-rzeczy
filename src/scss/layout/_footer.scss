@@ -56,31 +56,6 @@
 
 }
 
-.form__label {
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 40px;
-}
-
-.form__input {
-  font-size: 16px;
-  font-weight: 400;
-  width: 100%;
-  background: none;
-  border: none;
-  border-bottom: 1px solid $color-text-primary;
-  padding: 10px 0;
-  outline: none;
-
-  &::placeholder {
-    color: #3C3C3C26;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    overflow: hidden;
-  }
-}
-
 .form__submit {
   font-weight: 300;
   font-size: 18px;
@@ -99,15 +74,6 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-}
-
-.error__input {
-  border-bottom: 1px solid red;
-}
-
-.error__text {
-  color: red;
-  margin: 0;
 }
 
 .message-sent {

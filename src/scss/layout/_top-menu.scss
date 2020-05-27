@@ -59,10 +59,10 @@
     cursor: pointer;
   }
 
-  .active {
-    border: .75px solid $color-text-primary;
-  }
+}
 
+.active {
+  border: .75px solid $color-text-primary;
 }
 
 @media (max-width: $breakpoint-tablet) {

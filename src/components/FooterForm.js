@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import {validate} from "../../API/api";
+import {validate} from "../API/api";
 
 const FooterForm = () => {
     const [name, setName] = useState('');

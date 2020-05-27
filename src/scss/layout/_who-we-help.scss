@@ -1,0 +1,163 @@
+.foundations {
+  color: $color-text-primary;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__header {
+    position: relative;
+    margin: 30px 0 100px 0;
+    font-size: 38px;
+    font-weight: 400;
+    color: $color-text-primary;
+    text-align: center;
+  }
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  &__buttons {
+    display: flex;
+  }
+
+  &__btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 10px 40px;
+    margin: 0 10px;
+    width: 30%;
+    max-width: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+
+  }
+
+}
+
+.single-tab {
+  margin: 60px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 22px;
+    text-align: center;
+    max-width: 650px;
+  }
+
+  &__list {
+    width: 100%;
+    margin: 40px 0;
+    font-family: $font-alt;
+  }
+}
+
+.organization {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:not(:first-child) {
+    border-top: .75px solid $color-text-primary;
+  }
+
+  &__meta {
+
+  }
+
+  &__name {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 31px;
+  }
+
+  &__description {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    font-style: italic;
+    padding: 5px 0;
+  }
+
+  &__stuff {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 5px 0;
+    text-align: right;
+    margin-left: 10px;
+  }
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__item {
+    padding: 10px;
+    margin: 0 10px;
+    font-family: $font-base;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+}
+
+.current {
+  border: .75px solid $color-text-primary;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .organization {
+    flex-direction: column;
+    align-items: center;
+    &__name {
+      font-size: 20px;
+      font-weight: 400;
+      text-align: center;
+    }
+    &__meta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__description {
+      text-align: center;
+    }
+
+    &__stuff {
+      margin: 0;
+      text-align: center;
+    }
+  }
+  .tabs__btn {
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 0;
+    width: 100%;
+  }
+  .single-tab__title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

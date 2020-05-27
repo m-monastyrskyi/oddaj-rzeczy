@@ -86,11 +86,11 @@ const FooterForm = () => {
                             </div>
                             <label className="form__label" htmlFor="message">Wpisz swoją wiadomość</label>
                             <textarea
-                                rows="5"
+                                rows="4"
                                 className={errors.message ? "form__input error__input" : "form__input"}
                                 id="message"
                                 name="message"
-                                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                                 value={message}
                                 onChange={e => setMessage(e.target.value)}
                                 onFocus={() => setErrors({})}

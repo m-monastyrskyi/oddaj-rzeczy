@@ -6,6 +6,7 @@ import SimpleSteps from "./SimpleSteps";
 //import FooterFormik from "./FooterFormik";
 import FooterForm from "./FooterForm";
 import WhoWeHelp from "./WhoWeHelp";
+import AboutUs from "./AboutUs";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Header/>
             <ThreeColumns/>
             <SimpleSteps/>
+            <AboutUs />
             <WhoWeHelp />
             <FooterForm />
         </>

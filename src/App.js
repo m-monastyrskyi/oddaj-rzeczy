@@ -7,16 +7,17 @@ import Register from "./components/Register";
 import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Survey from "./components/Survey";
+import * as ROUTES from './constants/routes';
 
 function App() {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/oddaj-rzeczy/" component={Survey}/>
-                <Route exact path="/logowanie/" component={Login}/>
-                <Route exact path="/rejestracja/" component={Register}/>
-                <Route exact path="/wylogowano/" component={Logout}/>
+                <Route exact path={ROUTES.LANDING} component={Home}/>
+                <Route exact path={ROUTES.ACCOUNT} component={Survey}/>
+                <Route exact path={ROUTES.SIGN_IN} component={Login}/>
+                <Route exact path={ROUTES.SIGN_UP} component={Register}/>
+                <Route exact path={ROUTES.SIGN_OUT} component={Logout}/>
                 <Route path="*" component={NotFound}/>
             </Switch>
         </Router>

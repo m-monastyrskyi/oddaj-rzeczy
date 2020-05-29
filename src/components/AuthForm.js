@@ -2,18 +2,30 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import {validateAuth} from "../API/api";
 
-const AuthForm = ({register}) => {
+const AuthForm = ({register, firebase}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
-    const [errors, setErrors] = useState({});
+    const [formErrors, setFormErrors] = useState({});
+    const [serverError, setSeverError] = useState({})
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const result = register ? validateAuth(email, password, repeatPassword) : validateAuth(email, password);
 
-        console.log(result);
-        result.ok ? alert("Ok") : setErrors(result);
+        const validationResult = register ? validateAuth(email, password, repeatPassword) : validateAuth(email, password);
+
+        console.log(validationResult);
+        validationResult.ok
+            ? firebase.doCreateUserWithEmailAndPassword(email, password)
+                .then(authUser => {
+                    setEmail("");
+                    setPassword("");
+                    setRepeatPassword("");
+                })
+                .catch(error => {
+                    setSeverError(error);
+                })
+            : setFormErrors(validationResult);
 
     }
 
@@ -30,52 +42,52 @@ const AuthForm = ({register}) => {
                 <div className="auth-form__inputs">
                     <label className="form__label" htmlFor="name">Email</label>
                     <input
-                        className={errors.email ? "form__input error__input" : "form__input"}
+                        className={formErrors.email ? "form__input error__input" : "form__input"}
                         id="email"
                         name="email"
                         type="email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         onFocus={() => {
-                            setErrors({});
+                            setFormErrors({});
                         }}
                     />
                     {
-                        errors.email && <h3 className="error__text">{errors.email}</h3>
+                        formErrors.email && <h3 className="error__text">{formErrors.email}</h3>
                     }
 
                     <label className="form__label" htmlFor="password">Hasło</label>
                     <input
-                        className={errors.password ? "form__input error__input" : "form__input"}
+                        className={formErrors.password ? "form__input error__input" : "form__input"}
                         id="password"
                         name="password"
                         type="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                         onFocus={() => {
-                            setErrors({});
+                            setFormErrors({});
                         }}
                     />
                     {
-                        errors.password && <h3 className="error__text">{errors.password}</h3>
+                        formErrors.password && <h3 className="error__text">{formErrors.password}</h3>
                     }
 
                     {
                         register && <>
                             <label className="form__label" htmlFor="repeatPassword">Powtórz hasło</label>
                             <input
-                                className={errors.repeatPassword ? "form__input error__input" : "form__input"}
+                                className={formErrors.repeatPassword ? "form__input error__input" : "form__input"}
                                 id="repeatPassword"
                                 name="repeatPassword"
                                 type="password"
                                 value={repeatPassword}
                                 onChange={e => setRepeatPassword(e.target.value)}
                                 onFocus={() => {
-                                    setErrors({});
+                                    setFormErrors({});
                                 }}
                             />
                             {
-                                errors.repeatPassword && <h3 className="error__text">{errors.repeatPassword}</h3>
+                                formErrors.repeatPassword && <h3 className="error__text">{formErrors.repeatPassword}</h3>
                             }
                         </>
                     }

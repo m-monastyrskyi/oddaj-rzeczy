@@ -4,7 +4,7 @@ import TopMenu from "../TopMenu";
 import ThreeColumns from "./ThreeColumns";
 import SimpleSteps from "./SimpleSteps";
 //import FooterFormik from "./FooterFormik";
-import FooterForm from "./FooterForm";
+import FooterForm from "../FooterForm";
 import WhoWeHelp from "./WhoWeHelp";
 import AboutUs from "./AboutUs";
 

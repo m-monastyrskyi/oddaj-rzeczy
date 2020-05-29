@@ -12,15 +12,15 @@ import {FirebaseContext} from "../Firebase";
 const Home = () => {
     return (
         <>
-            <FirebaseContext.Consumer>
-                {firebase => <TopMenu firebase={firebase}/>}
-            </FirebaseContext.Consumer>
-
+            <TopMenu />
             <Header/>
             <ThreeColumns/>
             <SimpleSteps/>
             <AboutUs/>
-            <WhoWeHelp/>
+            <FirebaseContext.Consumer>
+                {firebase => <WhoWeHelp firebase={firebase}/>}
+            </FirebaseContext.Consumer>
+
             <FooterForm/>
         </>
     );

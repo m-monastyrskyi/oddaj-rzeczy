@@ -3,6 +3,7 @@ import TopMenu from "./TopMenu";
 import AuthForm from "./AuthForm";
 import {FirebaseContext} from './Firebase';
 import {GlobalContext} from "./GlobalContext";
+import { Redirect } from "react-router-dom";
 
 
 const Register = () => {
@@ -12,7 +13,7 @@ const Register = () => {
         <>
             <TopMenu/>
             {
-                user ? <h1>"Zalogowano już"</h1> : <FirebaseContext.Consumer>
+                user ? <Redirect to='/' /> : <FirebaseContext.Consumer>
                     {firebase => <AuthForm register={true} firebase={firebase}/>}
                 </FirebaseContext.Consumer>
             }

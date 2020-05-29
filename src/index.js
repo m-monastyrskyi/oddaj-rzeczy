@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import Firebase, {FirebaseContext} from "./components/Firebase";
-import AuthForm from "./components/AuthForm";
 import {GlobalProvider} from "./components/GlobalContext";
 
 ReactDOM.render(

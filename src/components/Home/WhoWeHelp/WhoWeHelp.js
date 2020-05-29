@@ -1,15 +1,27 @@
-import React, {useEffect, useState} from 'react';
 //import data from "./data";
+//import useGetData from "./useGetData";
+import React, {useEffect, useState} from 'react';
 import SingleTab from "./SingleTab";
-import useGetData from "./useGetData";
 
-const WhoWeHelp = () => {
+const WhoWeHelp = ({firebase}) => {
+    //const [dataFromFirebase, isLoading] = useGetData();
     const [activeData, setActiveData] = useState(null);
-    const [dataFromFirebase, isLoading] = useGetData();
+    const [dataFromFirebase, setDataFromFirebase] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        setActiveData(dataFromFirebase[0]);
-    }, [dataFromFirebase]);
+    // useEffect(() => {
+    //     setActiveData(dataFromFirebase[0]);
+    // }, [dataFromFirebase]);
+
+    useEffect(()=>{
+        firebase.app.database().ref('data').on("value", function (snapshot) {
+                setDataFromFirebase(snapshot.val());
+                setActiveData(snapshot.val()[0]);
+                setIsLoading(false);
+            }, function (error) {
+                console.log("Error: " + error.code);
+            });
+    },[])
 
     return (
         <section className="foundations">

@@ -2,11 +2,13 @@
   position: absolute;
   width: 100%;
 }
+
 .test {
   position: -webkit-sticky;
   position: sticky;
   top: -1px;
 }
+
 .top-menu {
   display: flex;
   flex-direction: column;
@@ -17,6 +19,23 @@
 }
 
 .user-menu {
+  &__email {
+    font-size: 14px;
+    color: #000000;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  &__logout {
+    color: $color-user-nav-text;
+    font-size: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0 10px;
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  }
 
   &__item {
     display: inline-block;

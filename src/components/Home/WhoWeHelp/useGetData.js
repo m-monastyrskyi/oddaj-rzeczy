@@ -1,22 +1,27 @@
 import {useState, useEffect} from 'react';
-import Firebase from "../../Firebase/firebase";
 import tmpData from "./data"
 
-
-const useGetData = () => {
+const useGetData = ({firebase}) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-       // const fire = new Firebase();
-       //  const fire = new Firebase();
-       //  const ref = fire.app.database().ref('data');
-       //  ref.on("value", function (snapshot) {
-       //      setData(snapshot.val());
-       //      setLoading(false);
-       //  }, function (error) {
-       //      console.log("Error: " + error.code);
-       //  });
+        firebase.app.database().ref('data').on("value", function (snapshot) {
+                setData(snapshot.val());
+                setLoading(false);
+            }, function (error) {
+                console.log("Error: " + error.code);
+            });
+
+
+        //
+        // const ref = firebase.database().ref('data');
+        // ref.on("value", function (snapshot) {
+        //     setData(snapshot.val());
+        //     setLoading(false);
+        // }, function (error) {
+        //     console.log("Error: " + error.code);
+        // });
 
         setData(tmpData);
         setLoading(false);

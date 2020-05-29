@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {NavLink} from "react-router-dom";
 import LinkScroll from "./LinkScroll";
 import {GlobalContext} from "./GlobalContext";
@@ -16,11 +16,11 @@ const TopMenu = () => {
                         {
                             user
                                 ? <>
-                                    <h3>Cześć {user.email}</h3>
+                                    <h3 className="user-menu__email">Cześć {user.email}</h3>
                                     <NavLink className="user-menu__item accent"
                                              to='/oddaj-rzeczy/'>Oddaj rzeczy
                                     </NavLink>
-                                    <button onClick={firebaseFromGlobal.doSignOut}>Logout</button>
+                                    <button className="user-menu__logout" onClick={firebaseFromGlobal.doSignOut}>Logout</button>
                                 </>
                                 : <>
                                     <NavLink className="user-menu__item" activeClassName="accent"

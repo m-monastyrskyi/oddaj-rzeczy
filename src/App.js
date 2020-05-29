@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './scss/main.scss';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from "./components/Home";

@@ -10,13 +10,13 @@ const SingleTab = ({data}) => {
     const totalPages = Math.ceil(data.list.length / itemsPerPage);
 
     const pagination = () => new Array(totalPages).fill(null).map((e, i) => (
-            <li
-                key={i+1}
-                className={classnames("pagination__item", { current: i + 1 === currentPage })}
-                onClick={() => setCurrentPage(i + 1)}>
-                {i + 1}
-            </li>
-        ))
+        <li
+            key={i + 1}
+            className={classnames("pagination__item", {current: i + 1 === currentPage})}
+            onClick={() => setCurrentPage(i + 1)}>
+            {i + 1}
+        </li>
+    ));
 
     useEffect(() => {
         const startIndex = currentPage * itemsPerPage - itemsPerPage;
@@ -52,7 +52,7 @@ const SingleTab = ({data}) => {
                     ))
                 }
                 {
-                    pagination() && <ul className="pagination">
+                    totalPages > 1 && <ul className="pagination">
                         {
                             pagination().map(el => el)
                         }

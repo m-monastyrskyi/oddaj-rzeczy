@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import classnames from 'classnames';
 
 const SingleTab = ({data}) => {
 
@@ -8,22 +9,14 @@ const SingleTab = ({data}) => {
     const itemsPerPage = 3;
     const totalPages = Math.ceil(data.list.length / itemsPerPage);
 
-    const pagination = () => {
-        let result = [];
-        if (data.list.length > itemsPerPage) {
-            for (let i = 1; i <= totalPages; i++) {
-                result.push(<li
-                        key={i}
-                        className={i === currentPage ? "pagination__item current" : "pagination__item"}
-                        onClick={() => setCurrentPage(i)}>
-                        {i}
-                    </li>
-                )
-            }
-            return result;
-        }
-        return null;
-    }
+    const pagination = () => new Array(totalPages).fill(null).map((e, i) => (
+            <li
+                key={i+1}
+                className={classnames("pagination__item", { current: i + 1 === currentPage })}
+                onClick={() => setCurrentPage(i + 1)}>
+                {i + 1}
+            </li>
+        ))
 
     useEffect(() => {
         const startIndex = currentPage * itemsPerPage - itemsPerPage;

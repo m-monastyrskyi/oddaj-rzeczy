@@ -91,7 +91,6 @@ const AuthForm = ({register}) => {
                         </>
                     }
                 </div>
-
             </form>
         </section>
     );

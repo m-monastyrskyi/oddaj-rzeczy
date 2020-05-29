@@ -1,18 +1,34 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {NavLink} from "react-router-dom";
 import LinkScroll from "./LinkScroll";
+import {GlobalContext} from "./GlobalContext";
+
 
 const TopMenu = () => {
     const isAuth = window.location.pathname === "/logowanie/" || window.location.pathname === "/rejestracja/";
+    const [user, , firebaseFromGlobal] = useContext(GlobalContext);
 
     return (
         <div className="menu-wrapper">
             <div className="container">
                 <div className="top-menu">
                     <div className="user-menu">
-                        <NavLink className="user-menu__item" activeClassName="accent" to='/logowanie/'>Zaloguj</NavLink>
-                        <NavLink className={`user-menu__item ${!isAuth && "accent"}`} activeClassName="accent"
-                                 to='/rejestracja/'>Załóż konto</NavLink>
+                        {
+                            user
+                                ? <>
+                                    <h3>Cześć {user.email}</h3>
+                                    <NavLink className="user-menu__item accent"
+                                             to='/oddaj-rzeczy/'>Oddaj rzeczy
+                                    </NavLink>
+                                    <button onClick={firebaseFromGlobal.doSignOut}>Logout</button>
+                                </>
+                                : <>
+                                    <NavLink className="user-menu__item" activeClassName="accent"
+                                             to='/logowanie/'>Zaloguj</NavLink>
+                                    <NavLink className={`user-menu__item ${!isAuth && "accent"}`} activeClassName="accent"
+                                             to='/rejestracja/'>Załóż konto</NavLink>
+                                </>
+                        }
                     </div>
 
                     <nav className="navigation">

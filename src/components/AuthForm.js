@@ -15,17 +15,31 @@ const AuthForm = ({register, firebase}) => {
         const validationResult = register ? validateAuth(email, password, repeatPassword) : validateAuth(email, password);
 
         console.log(validationResult);
-        validationResult.ok
-            ? firebase.doCreateUserWithEmailAndPassword(email, password)
-                .then(authUser => {
-                    setEmail("");
-                    setPassword("");
-                    setRepeatPassword("");
-                })
-                .catch(error => {
-                    setSeverError(error);
-                })
-            : setFormErrors(validationResult);
+
+        if (validationResult.ok) {
+            register
+                ? firebase.doCreateUserWithEmailAndPassword(email, password)
+                    .then(authUser => {
+                        setEmail("");
+                        setPassword("");
+                        setRepeatPassword("");
+                    })
+                    .catch(error => {
+                        setSeverError(error);
+                        console.log(error);
+                    })
+                : firebase.doSignInWithEmailAndPassword(email, password)
+                    .then(() => {
+                        setEmail("");
+                        setPassword("");
+                    })
+                    .catch(error => {
+                        setSeverError(error);
+                        console.log(error);
+                    });
+        } else {
+            setFormErrors(validationResult);
+        }
 
     }
 
@@ -37,7 +51,7 @@ const AuthForm = ({register, firebase}) => {
                     {register ? "Załóż konto" : "Zaloguj się"}
                 </h1>
             </div>
-
+            <h3 className="error__text">{serverError.message}</h3>
             <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="auth-form__inputs">
                     <label className="form__label" htmlFor="name">Email</label>
@@ -87,7 +101,8 @@ const AuthForm = ({register, firebase}) => {
                                 }}
                             />
                             {
-                                formErrors.repeatPassword && <h3 className="error__text">{formErrors.repeatPassword}</h3>
+                                formErrors.repeatPassword &&
+                                <h3 className="error__text">{formErrors.repeatPassword}</h3>
                             }
                         </>
                     }

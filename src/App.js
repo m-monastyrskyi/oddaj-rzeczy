@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import './scss/main.scss';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from "./components/Home";
@@ -8,8 +8,20 @@ import Logout from "./components/Logout";
 import NotFound from "./components/NotFound";
 import Survey from "./components/Survey";
 import * as ROUTES from './constants/routes';
+import {GlobalContext} from "./components/GlobalContext";
 
-function App() {
+function App({firebase}) {
+    const [, setUser, , setFirebaseFromGlobal] = useContext(GlobalContext);
+
+    useEffect(() => {
+        setFirebaseFromGlobal(firebase);
+        firebase.auth.onAuthStateChanged(authUser => {
+            authUser
+                ? setUser(authUser)
+                : setUser(null);
+        });
+    }, [])
+
     return (
         <Router>
             <Switch>

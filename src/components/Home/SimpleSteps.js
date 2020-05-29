@@ -74,7 +74,7 @@ const SimpleSteps = () => {
                             </div>
                         </div>
                     </div>
-                    <Link className="simple-steps__btn btn" to="/logowanie/">Oddaj<br/>rzeczy</Link>
+                    <Link className="simple-steps__btn btn" to="/oddaj-rzeczy/">Oddaj<br/>rzeczy</Link>
                 </div>
             </div>
         </section>

@@ -7,17 +7,21 @@ import SimpleSteps from "./SimpleSteps";
 import FooterForm from "../FooterForm";
 import WhoWeHelp from "./WhoWeHelp";
 import AboutUs from "./AboutUs";
+import {FirebaseContext} from "../Firebase";
 
 const Home = () => {
     return (
         <>
-            <TopMenu/>
+            <TopMenu />
             <Header/>
             <ThreeColumns/>
             <SimpleSteps/>
-            <AboutUs />
-            <WhoWeHelp />
-            <FooterForm />
+            <AboutUs/>
+            <FirebaseContext.Consumer>
+                {firebase => <WhoWeHelp firebase={firebase}/>}
+            </FirebaseContext.Consumer>
+
+            <FooterForm/>
         </>
     );
 };

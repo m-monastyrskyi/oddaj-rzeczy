@@ -43,8 +43,7 @@ const SurveyForm = () => {
                 {
                     [5].includes(currentPage) && <button onClick={()=>setCurrentPage(prev => prev + 1)}>Potwierdzam</button>
                 }
-
-
+                
             </div>
         </section>
     );

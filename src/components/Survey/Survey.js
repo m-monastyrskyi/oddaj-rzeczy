@@ -5,16 +5,16 @@ import SurveyHeader from "./SurveyHeader";
 import SurveyForm from "./SurveyForm";
 import {GlobalContext} from "../GlobalContext";
 import {Redirect} from "react-router-dom";
-import { animateScroll as scroll } from 'react-scroll'
-
+import {animateScroll as scroll} from 'react-scroll'
+import {FormProvider} from "./FormsContext";
 
 
 const Survey = () => {
     const [user] = useContext(GlobalContext);
 
-    useEffect(()=>{
+    useEffect(() => {
         scroll.scrollTo(0);
-    },[])
+    }, [])
 
     if (!user) {
         return (
@@ -24,7 +24,9 @@ const Survey = () => {
         return <>
             <TopMenu/>
             <SurveyHeader/>
-            <SurveyForm/>
+            <FormProvider>
+                <SurveyForm/>
+            </FormProvider>
             <FooterForm/>
         </>
     }

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import LinkScroll from "./LinkScroll";
 import {GlobalContext} from "./GlobalContext";
 
@@ -20,9 +20,15 @@ const TopMenu = () => {
                                     <NavLink className="user-menu__item accent"
                                              to='/oddaj-rzeczy/'>Oddaj rzeczy
                                     </NavLink>
+                                    <NavLink activeClassName="" className="user-menu__item home__mobile"
+                                             to="/">Home
+                                    </NavLink>
                                     <button className="user-menu__logout" onClick={firebaseFromGlobal.doSignOut}>Logout</button>
                                 </>
                                 : <>
+                                    <NavLink activeClassName="" className="user-menu__item home__mobile"
+                                             to="/">Home
+                                    </NavLink>
                                     <NavLink className="user-menu__item" activeClassName="accent"
                                              to='/logowanie/'>Zaloguj</NavLink>
                                     <NavLink className={`user-menu__item ${!isAuth && "accent"}`} activeClassName="accent"

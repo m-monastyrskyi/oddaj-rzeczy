@@ -1,4 +1,4 @@
-### LIVE - https://oddaj-rzeczy.netlify.app/
+### LIVE - https://oddaj-rzeczy.m-m.codes/
 
 Portfolio Lab w Coders Lab
 

@@ -18,27 +18,37 @@ const Form1 = () => {
 
     return (
         <>
-            <h3>Krok 1/4</h3>
-            <br/>
-            <h2>Zaznacz co chcesz oddać:</h2>
-            <br/><br/>
+            <h3 className="step-number">Krok 1/4</h3>
 
-            <input type="checkbox" id="clothesOk" checked={formsData.clothesOk} name="clothesOk"
-                   onChange={handleChange}/>
-            <label htmlFor="clothesOk">ubrania, które nadają się do ponownego użycia</label><br/><br/>
+            <h2 className="step-title">Zaznacz co chcesz oddać:</h2>
 
-            <input type="checkbox" id="clothesNotOk" name="clothesNotOk" checked={formsData.clothesNotOk}
-                   onChange={handleChange}/>
-            <label htmlFor="clothesNotOk">ubrania, do wyrzucenia</label><br/><br/>
+            <label className="checkbox-container">ubrania, które nadają się do ponownego użycia
+                <input type="checkbox" id="clothesOk" checked={formsData.clothesOk} name="clothesOk"
+                       onChange={handleChange}/>
+                <span className="checkmark"/>
+            </label>
 
-            <input type="checkbox" id="toys" name="toys" checked={formsData.toys} onChange={handleChange}/>
-            <label htmlFor="toys">zabawki</label><br/><br/>
+            <label className="checkbox-container">ubrania, do wyrzucenia
+                <input type="checkbox" id="clothesNotOk" name="clothesNotOk" checked={formsData.clothesNotOk}
+                       onChange={handleChange}/>
+                <span className="checkmark"/>
+            </label>
 
-            <input type="checkbox" id="books" name="books" checked={formsData.books} onChange={handleChange}/>
-            <label htmlFor="books">książki</label><br/><br/>
+            <label className="checkbox-container">zabawki
+                <input type="checkbox" id="toys" name="toys" checked={formsData.toys} onChange={handleChange}/>
+                <span className="checkmark"/>
+            </label>
 
-            <input type="checkbox" id="other" name="other" checked={formsData.other} onChange={handleChange}/>
-            <label htmlFor="other">Inne</label><br/><br/>
+            <label className="checkbox-container">książki
+                <input type="checkbox" id="books" name="books" checked={formsData.books} onChange={handleChange}/>
+                <span className="checkmark"/>
+            </label>
+
+            <label className="checkbox-container">Inne
+                <input type="checkbox" id="other" name="other" checked={formsData.other} onChange={handleChange}/>
+                <span className="checkmark"/>
+            </label>
+
         </>
     );
 };

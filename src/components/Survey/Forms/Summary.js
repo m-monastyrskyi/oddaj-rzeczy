@@ -22,29 +22,35 @@ const Summary = () => {
         notesForTheCourier
     } = formsData;
 
-
     return (
         <>
-            <h2>Podsumowanie Twojej darowizny</h2>
-            <h3>Oddajesz:</h3>
-            <p>worków: {bags},
-                {clothesOk && "ubrania, które nadają się do ponownego użycia"},
-                {clothesNotOk && "ubrania, do wyrzucenia"},
-                {toys && "zabawki"},
-                {books && "książki"},
-                {other && "inne"},
-                {whomToHelp && whomToHelp},
+            <h2 className="step-title">Podsumowanie Twojej darowizny</h2>
+            <h3 className="step-subtitle">Oddajesz:</h3>
+            <p className="summary-things">worków: {bags + "; "}
+                {clothesOk && "ubrania, które nadają się do ponownego użycia; "}
+                {clothesNotOk && "ubrania, do wyrzucenia; "}
+                {toys && "zabawki; "}
+                {books && "książki; "}
+                {other && "inne; "}
+                {whomToHelp && whomToHelp + "; "}
                 {customOrganization && `dla organizacji: ${customOrganization}`}
             </p>
-            <p>dla lokalizacji: {localization}</p>
-            <p>Adres odbioru:</p>
-            <p>ulica: {street}</p>
-            <p>Miasto: {city}</p>
-            <p>Kod pocztowy: {zipCode}</p>
-            <p>Numer telefonu: {phoneNumber}</p>
-            <p>Data: {date}</p>
-            <p>Godzina: {time}</p>
-            {notesForTheCourier && <p>Uwagi dla kuriera: {notesForTheCourier}</p>}
+            <p className="summary-localization"><strong>dla lokalizacji:</strong> {localization}</p>
+            <div className="summary-contact">
+                <div className="summary-address">
+                    <h3 className="step-subtitle">Adres odbioru:</h3>
+                    <p><strong>ulica:</strong> {street}</p>
+                    <p><strong>Miasto:</strong> {city}</p>
+                    <p><strong>Kod pocztowy:</strong> {zipCode}</p>
+                    <p><strong>Numer telefonu:</strong> {phoneNumber}</p>
+                </div>
+                <div className="summary-date">
+                    <h3 className="step-subtitle">Termin odbioru:</h3>
+                    <p><strong>Data:</strong> {date}</p>
+                    <p><strong>Godzina:</strong> {time}</p>
+                    {notesForTheCourier && <p><strong>Uwagi dla kuriera:</strong> {notesForTheCourier}</p>}
+                </div>
+            </div>
         </>
     );
 };

@@ -33,26 +33,32 @@ const SurveyForm = () => {
     const handleNextClick = () => {
         const validationResult = validateForm(currentPage, formsData);
         validationResult === true ? setCurrentPage(prev => prev + 1) : alert(validationResult);
+       // setCurrentPage(prev => prev + 1)
     }
 
     return (
         <section className="survey-form">
-            {
-                getCurrentForm()
-            }
-            <div>
-                {
-                    ![1, 6].includes(currentPage) &&
-                    <button onClick={() => setCurrentPage(prev => prev - 1)}>Wstecz</button>
-                }
-                {
-                    ![5, 6].includes(currentPage) && <button onClick={handleNextClick}>Dalej</button>
-                }
-                {
-                    [5].includes(currentPage) &&
-                    <button onClick={() => setCurrentPage(prev => prev + 1)}>Potwierdzam</button>
-                }
-
+            <div className="container">
+                <div className="survey-form__wrapper">
+                    <div className="form-inputs">
+                        {
+                            getCurrentForm()
+                        }
+                    </div>
+                    <div className="form-navigation">
+                        {
+                            ![1, 6].includes(currentPage) &&
+                            <button className="form-navigation__button btn" onClick={() => setCurrentPage(prev => prev - 1)}>Wstecz</button>
+                        }
+                        {
+                            ![5, 6].includes(currentPage) && <button className="form-navigation__button btn" onClick={handleNextClick}>Dalej</button>
+                        }
+                        {
+                            [5].includes(currentPage) &&
+                            <button className="form-navigation__button btn" onClick={() => setCurrentPage(prev => prev + 1)}>Potwierdzam</button>
+                        }
+                    </div>
+                </div>
             </div>
         </section>
     );

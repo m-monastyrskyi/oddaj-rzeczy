@@ -18,22 +18,20 @@ const Form2 = () => {
 
     return (
         <>
-            <h3>Krok 2/4</h3>
-            <br/>
-            <h2>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
-            <br/><br/>
+            <h3 className="step-number">Krok 2/4</h3>
+            <h2 className="step-title">Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h2>
+            <div>
+                <label htmlFor="bags">Liczba 60l worków:</label>
 
-            <label htmlFor="bags">Liczba 60l worków:</label>
-
-            <select name="bags" value={formsData.bags} onChange={handleChange}>
-                <option value="--wybierz--">--wybierz--</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <br/><br/>
+                <select className="select-css" name="bags" value={formsData.bags} onChange={handleChange}>
+                    <option value="--wybierz--">--wybierz--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
         </>
     );
 };

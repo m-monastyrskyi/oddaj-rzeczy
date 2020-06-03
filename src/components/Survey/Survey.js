@@ -5,7 +5,7 @@ import SurveyHeader from "./SurveyHeader";
 import SurveyForm from "./SurveyForm";
 import {GlobalContext} from "../GlobalContext";
 import {Redirect} from "react-router-dom";
-import {animateScroll as scroll} from 'react-scroll'
+import { animateScroll as scroll, scroller } from 'react-scroll'
 import {FormProvider} from "./FormsContext";
 
 
@@ -14,6 +14,11 @@ const Survey = () => {
 
     useEffect(() => {
         scroll.scrollTo(0);
+        // scroller.scrollTo('survey-form', {
+        //     duration: 800,
+        //     delay: 0,
+        //     smooth: 'easeInOutQuart'
+        // });
     }, [])
 
     if (!user) {

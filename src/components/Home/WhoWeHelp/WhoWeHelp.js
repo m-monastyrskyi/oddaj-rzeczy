@@ -24,7 +24,7 @@ const WhoWeHelp = ({firebase}) => {
     },[])
 
     return (
-        <section className="foundations">
+        <section className="foundations" id="who-we-help">
             <div className="container">
                 <div className="foundations__wrapper">
                     <h2 className="foundations__header decoration">Komu pomagamy?</h2>

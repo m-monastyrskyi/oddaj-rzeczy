@@ -7,7 +7,8 @@ const AuthForm = ({register, firebase}) => {
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [formErrors, setFormErrors] = useState({});
-    const [serverError, setSeverError] = useState({})
+    const [serverError, setSeverError] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,26 +18,35 @@ const AuthForm = ({register, firebase}) => {
         console.log(validationResult);
 
         if (validationResult.ok) {
-            register
-                ? firebase.doCreateUserWithEmailAndPassword(email, password)
+            if (register) {
+                setIsLoading(true);
+                firebase.doCreateUserWithEmailAndPassword(email, password)
                     .then(authUser => {
                         setEmail("");
                         setPassword("");
                         setRepeatPassword("");
+                        setIsLoading(false);
                     })
                     .catch(error => {
                         setSeverError(error);
                         console.log(error);
+                        setIsLoading(false);
                     })
-                : firebase.doSignInWithEmailAndPassword(email, password)
+            } else {
+                setIsLoading(true);
+                firebase.doSignInWithEmailAndPassword(email, password)
                     .then(() => {
                         setEmail("");
                         setPassword("");
+                        setIsLoading(false);
                     })
                     .catch(error => {
                         setSeverError(error);
                         console.log(error);
+                        setIsLoading(false);
                     });
+            }
+
         } else {
             setFormErrors(validationResult);
         }
@@ -50,6 +60,9 @@ const AuthForm = ({register, firebase}) => {
                 <h1 className="decoration">
                     {register ? "Załóż konto" : "Zaloguj się"}
                 </h1>
+                {
+                    isLoading && <div className="loading" style={{margin: "20px auto"}}/>
+                }
             </div>
             <h3 className="error__text">{serverError.message}</h3>
             <form className="auth-form" onSubmit={handleSubmit}>

@@ -5,7 +5,6 @@ import {FirebaseContext} from './Firebase';
 import {GlobalContext} from "./GlobalContext";
 import { Redirect } from "react-router-dom";
 
-
 const Register = () => {
     const [user] = useContext(GlobalContext);
 

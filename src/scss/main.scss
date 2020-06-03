@@ -1,8 +1,22 @@
 @import "base/reset";
-
 @import "base/fonts";
 @import "base/colors";
 
+@import "base/mixins";
+@import "components/components";
+
 @import "base/general";
 
+@import "layout/top-menu";
+@import "layout/header";
+@import "layout/three-columns";
+@import "layout/simple-steps";
+@import "layout/about-us";
+@import "layout/who-we-help";
 
+@import "layout/footer";
+
+@import "layout/auth-page";
+
+@import "layout/survey-header";
+@import "layout/survey-form";

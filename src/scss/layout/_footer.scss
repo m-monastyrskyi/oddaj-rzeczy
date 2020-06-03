@@ -1,0 +1,93 @@
+.footer {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $color-text-primary;
+
+  &::after {
+    content: "";
+    background: url("../../assets/Background-Contact-Form.jpg") no-repeat top left;
+    background-size: cover;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.contact__wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input, textarea, label {
+    display: block;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  &__title {
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 55px;
+    position: relative;
+    text-align: center;
+  }
+
+  &__form {
+    margin-top: 100px;
+    width: 100%;
+    max-width: 530px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+}
+
+.form__submit {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 32px;
+  padding: 10px 40px;
+  background: none;
+  margin-top: 40px;
+}
+
+.input-wrapper {
+  display: inline-block;
+  width: 48%;
+}
+
+.submit__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message-sent {
+  color: #03aa15;
+  font-weight: 600;
+  transform: translateY(100px);
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .footer:after {
+    opacity: 0.1;
+    background-position: center;
+  }
+  .contact__wrapper {
+    justify-content: center;
+  }
+}

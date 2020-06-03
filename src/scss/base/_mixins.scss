@@ -1,0 +1,11 @@
+@mixin btn {
+  font-family: $font-base;
+  font-size: 36px;
+  font-weight: 100;
+  line-height: 45px;
+  text-transform: uppercase;
+  border: .75px solid $color-text-primary;
+  text-align: center;
+  text-decoration: none;
+  color: $color-text-primary;
+}
